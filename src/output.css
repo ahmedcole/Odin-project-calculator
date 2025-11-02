@@ -7,12 +7,23 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-500: oklch(63.7% 0.237 25.331);
-    --text-3xl: 1.875rem;
-    --text-3xl--line-height: calc(2.25 / 1.875);
+    --color-gray-400: oklch(70.7% 0.022 261.325);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
     --font-weight-bold: 700;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --color-bg-gradient: linear-gradient(to bottom, #807ece, #8e7ece);
+    --color-primary: #2d2a37;
+    --color-primary-ce: #975dfa;
+    --color-primary-sign: #462878;
+    --color-primary-equal: #7f45e2;
   }
 }
 @layer base {
@@ -164,20 +175,141 @@
   }
 }
 @layer utilities {
-  .bg-red-500 {
-    background-color: var(--color-red-500);
+  .container {
+    width: 100%;
+    @media (width >= 40rem) {
+      max-width: 40rem;
+    }
+    @media (width >= 48rem) {
+      max-width: 48rem;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem;
+    }
   }
-  .text-3xl {
-    font-size: var(--text-3xl);
-    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .mt-6\.5 {
+    margin-top: calc(var(--spacing) * 6.5);
+  }
+  .flex {
+    display: flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .h-16 {
+    height: calc(var(--spacing) * 16);
+  }
+  .h-\[50\%\] {
+    height: 50%;
+  }
+  .h-\[86px\] {
+    height: 86px;
+  }
+  .h-\[566px\] {
+    height: 566px;
+  }
+  .h-dvh {
+    height: 100dvh;
+  }
+  .w-16 {
+    width: calc(var(--spacing) * 16);
+  }
+  .w-\[288px\] {
+    width: 288px;
+  }
+  .w-\[292px\] {
+    width: 292px;
+  }
+  .w-\[356px\] {
+    width: 356px;
+  }
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .rounded-\[48px\] {
+    border-radius: 48px;
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .bg-primary-equal {
+    background-color: var(--color-primary-equal);
+  }
+  .bg-primary-sign {
+    background-color: var(--color-primary-sign);
+  }
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
+  }
+  .pt-\[54px\] {
+    padding-top: 54px;
+  }
+  .text-right {
+    text-align: right;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
   }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
-  .underline {
-    text-decoration-line: underline;
+  .text-gray-400 {
+    color: var(--color-gray-400);
   }
+  .text-primary-ce {
+    color: var(--color-primary-ce);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+}
+body {
+  background-image: var(--color-bg-gradient);
+}
+.cal-btn, .cal-body {
+  box-shadow: inset 2px 2px 0 #7d7c7e, inset -2px -2px 0px #1c1c1c;
+}
+.cal-btn {
+  border: 4px solid #090909;
+  box-shadow: inset 2px 2px 0 #7d7c7e, inset -2px -2px 0px #1c1c1c;
+}
+.cal-btn::before {
+  content: "";
+  border-radius: inherit;
+  background-image: linear-gradient(145deg, #262626, #606060);
+  z-index: -1;
+  box-shadow: 11px 11px 22px #141414, -11px -11px 22px #525252;
 }
 @property --tw-font-weight {
   syntax: "*";
